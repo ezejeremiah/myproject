@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<div class="header">
+    <h1>STORE INFORMATIONS</h1>
+    
+</div>
+
+<div class="app-row">
+  <div class="app">
+    <div class="form">
+        <form method="POST">
+            {% csrf_token %}
+            <p1>{{myform}}</p1>
+            <p1><input type="submit"></p1>
+        </form>
+    </div>
+  
+    {% for pos in posts %}
+    <div class="myapp">
+        <div class="myapp-row">
+            <p1>MESSAGES: {{pos.message}}</p1><br>
+            <p1>CREATED_AT: {{pos.create_at}}</p1><br>
+            <span><a class="hh1" href="update/{{pos.pk}}">update</a></span>
+            <span><a class="pp1" href="delete/{{pos.pk}}">delete</a></span>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
